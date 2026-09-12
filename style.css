@@ -1,0 +1,359 @@
+/*
+ * Kraterarchiv EPUB Reader Theme System
+ * Supports Dark (default) and Light minimalist modes with responsive UI
+ */
+
+:root, [data-theme="dark"] {
+  --bg-a: #2b231d;
+  --bg-b: #130f0d;
+  --chassis-top: #685748;
+  --chassis-mid: #4a3c31;
+  --chassis-low: #2d241d;
+  --bezel: #120e0c;
+  --screen: #0a0d0d;
+  --screen-glow: #8df0ca;
+  --dispatch: #ff9d2f;
+  --dispatch-2: #ffd166;
+  --danger: #ff5a3d;
+  --good: #8ee39f;
+  --muted: #a69888;
+  --text: #fff2e4;
+  --text-heading: #ffffff;
+  --card-bg: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, 0) 15%), linear-gradient(180deg, #1d1614, #0f0b0a);
+  --input-bg: #271e1a;
+  --btn-bg: linear-gradient(180deg, #574135, #291e1a);
+  --btn-hover: #ff9d2f;
+  --btn-hover-text: #1a0c06;
+  --mono: "IBM Plex Mono", Menlo, monospace;
+  --lcd-font: "VT323", "IBM Plex Mono", Menlo, monospace;
+  --sans: "Space Grotesk", "Segoe UI", sans-serif;
+  --title: "Bebas Neue", Impact, sans-serif;
+  --reading-size: 1.16rem;
+}
+
+[data-theme="light"] {
+  --bg-a: #f7f4eb;
+  --bg-b: #eae3d2;
+  --chassis-top: #e0d7c5;
+  --chassis-mid: #d2c7b3;
+  --chassis-low: #bfb39d;
+  --bezel: #e2dac9;
+  --screen: #ffffff;
+  --screen-glow: #2b7a59;
+  --dispatch: #c45b14;
+  --dispatch-2: #9e4209;
+  --danger: #c4331a;
+  --good: #24753c;
+  --muted: #6b6357;
+  --text: #1f1c18;
+  --text-heading: #110f0d;
+  --card-bg: linear-gradient(180deg, rgba(255, 255, 255, .6), rgba(255, 255, 255, 0) 20%), linear-gradient(180deg, #ffffff, #f7f3ea);
+  --input-bg: #efe8da;
+  --btn-bg: linear-gradient(180deg, #e4dac8, #cdc0aa);
+  --btn-hover: #c45b14;
+  --btn-hover-text: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html { min-height: 100%; background: var(--bg-b); transition: background .3s ease; }
+body {
+  margin: 0;
+  padding: 18px;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: var(--sans);
+  background:
+    radial-gradient(circle at 16% 12%, rgba(255, 157, 47, .12), transparent 20%),
+    radial-gradient(circle at 82% 14%, rgba(255, 209, 102, .06), transparent 18%),
+    linear-gradient(165deg, var(--bg-a), var(--bg-b) 72%);
+  transition: color .3s ease, background .3s ease;
+}
+
+button, a, select, label { font: inherit; }
+a { color: inherit; }
+
+.radio {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 18px;
+  border-radius: 34px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0) 15%, rgba(0, 0, 0, .14) 82%),
+    linear-gradient(180deg, var(--chassis-top), var(--chassis-mid) 48%, var(--chassis-low));
+  box-shadow: 0 34px 80px rgba(0, 0, 0, .36), inset 0 1px 0 rgba(255, 255, 255, .24);
+}
+
+.terminal-shell { width: auto; padding: 0; }
+
+.terminal-bar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 6px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 124, 84, .38);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .01) 10%, rgba(0, 0, 0, .14)), var(--bezel);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05), 0 8px 14px rgba(0, 0, 0, .1);
+  font: 14px var(--lcd-font);
+}
+
+.back-link { color: var(--dispatch-2); text-decoration: none; padding-right: 8px; }
+.back-link:hover { color: var(--dispatch); }
+
+.terminal-id { flex: 1; color: var(--dispatch-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.status-dot { display: inline-block; width: 7px; height: 7px; margin-right: 8px; background: var(--good); box-shadow: 0 0 10px var(--good); border-radius: 50%; }
+
+/* Header Actions (Multi-Book, Upload, Theme) */
+.header-actions { display: flex; align-items: center; gap: 8px; }
+
+.book-select {
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 209, 102, .35);
+  background: var(--input-bg);
+  color: var(--dispatch-2);
+  font: 13px var(--mono);
+  max-width: 260px;
+  cursor: pointer;
+  outline: none;
+}
+.book-select:hover { border-color: var(--dispatch); }
+
+.upload-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 209, 102, .35);
+  background: var(--btn-bg);
+  color: var(--dispatch-2);
+  font: 13px var(--mono);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.upload-btn:hover { background: var(--btn-hover); color: var(--btn-hover-text); }
+
+.theme-btn {
+  width: 34px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 209, 102, .35);
+  background: var(--btn-bg);
+  color: var(--dispatch-2);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+.theme-btn:hover { background: var(--btn-hover); color: var(--btn-hover-text); }
+
+/* Reader Frame & Rail */
+.reader-frame {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  margin-top: 14px;
+  gap: 16px;
+}
+
+.archive-rail, .reader-main {
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 10px 22px rgba(0, 0, 0, .22);
+}
+
+.archive-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 9px;
+  background: linear-gradient(180deg, var(--chassis-top), var(--chassis-low));
+  color: var(--dispatch-2);
+}
+
+.rail-mark { font-family: var(--title); font-size: 1.25rem; line-height: .9; text-align: center; }
+.rail-mark span { color: var(--dispatch); font-family: var(--mono); font-size: .6rem; display: block; }
+.rail-label { margin-top: 44px; writing-mode: vertical-rl; transform: rotate(180deg); font-size: .62rem; letter-spacing: .24em; font-family: var(--mono); }
+.rail-line { flex: 1; width: 1px; min-height: 100px; margin: 24px 0; background: linear-gradient(var(--dispatch), transparent); opacity: .55; }
+.rail-meta { color: var(--muted); font-size: .55rem; line-height: 1.6; text-align: center; font-family: var(--mono); }
+
+.reader-main {
+  padding: 26px clamp(20px, 4vw, 54px) 24px;
+  background: var(--card-bg);
+}
+
+/* Header Info */
+.reader-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid rgba(255, 157, 47, .2);
+  padding-bottom: 24px;
+}
+
+.eyebrow, .chapter-number { margin: 0 0 10px; color: var(--dispatch); font-family: var(--mono); font-size: .72rem; letter-spacing: .15em; }
+
+h1 {
+  margin: 0;
+  font-family: var(--title);
+  letter-spacing: 1px;
+  max-width: 760px;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  line-height: .96;
+  color: var(--dispatch-2);
+}
+h1 em { color: var(--text-heading); font-style: normal; }
+
+.dek { max-width: 620px; margin: 16px 0 0; color: var(--muted); line-height: 1.5; font-size: .95rem; }
+
+.stamp {
+  align-self: start;
+  min-width: 110px;
+  padding: 10px;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .12em;
+  transform: rotate(3deg);
+  text-align: center;
+}
+.stamp strong { color: var(--dispatch-2); font-family: var(--title); font-size: .88rem; }
+
+/* Media Deck (BGM & Audiobook controls) */
+.media-deck {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px 0 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 157, 47, .25);
+  background: var(--input-bg);
+}
+
+.bgm-player { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+.bgm-btn, .audiobook-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 209, 102, .35);
+  background: var(--btn-bg);
+  color: var(--dispatch-2);
+  font: 13px var(--mono);
+  cursor: pointer;
+}
+.bgm-btn:hover, .audiobook-btn:hover { background: var(--btn-hover); color: var(--btn-hover-text); }
+.bgm-btn.playing { border-color: var(--good); color: var(--good); background: rgba(142, 227, 159, .15); }
+
+.bgm-select {
+  padding: 5px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 209, 102, .25);
+  background: var(--card-bg);
+  color: var(--text);
+  font: 12px var(--mono);
+  max-width: 220px;
+  cursor: pointer;
+}
+
+.bgm-volume { width: 80px; accent-color: var(--dispatch); cursor: pointer; }
+
+/* Collapsible Audiobook Deck */
+.audio-deck {
+  margin: 10px 0 16px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 157, 47, .35);
+  background: var(--input-bg);
+}
+.audio-deck.hidden { display: none; }
+.audio-deck-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; font-family: var(--mono); font-size: .68rem; }
+.audio-tag { color: var(--dispatch); font-weight: bold; }
+.audio-title { color: var(--muted); font-size: .62rem; }
+.audio-player { width: 100%; height: 40px; border-radius: 8px; outline: none; accent-color: var(--dispatch); }
+
+/* Reader Controls Toolbar */
+.reader-controls { display: flex; align-items: center; gap: 8px; padding: 12px 0; color: var(--muted); font-family: var(--mono); font-size: .72rem; }
+.tool-button, .nav-button {
+  border: 1px solid rgba(255, 209, 102, .35);
+  background: var(--btn-bg);
+  color: var(--dispatch-2);
+  cursor: pointer;
+  border-radius: 6px;
+}
+.tool-button { width: 34px; height: 30px; font-size: .85rem; }
+.tool-button:hover, .nav-button:hover { background: var(--btn-hover); color: var(--btn-hover-text); }
+.control-divider { width: 1px; height: 20px; margin: 0 4px; background: rgba(255, 157, 47, .25); }
+.page-readout { margin-left: auto; letter-spacing: .12em; color: var(--dispatch); }
+
+/* Book Content Area */
+.book { max-width: 780px; min-height: 520px; padding: 18px 0 32px; }
+.chapter { display: none; animation: arrive .32s ease both; }
+.chapter.active { display: block; }
+.chapter h1, .chapter h2, .chapter h3 { margin: 0 0 24px; color: var(--text-heading); font-family: var(--title); letter-spacing: 1px; }
+.chapter h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
+.chapter p { margin: 0 0 20px; color: var(--text); font-family: var(--sans); font-size: var(--reading-size); line-height: 1.78; }
+.chapter .broadcast { padding-left: 20px; border-left: 2px solid var(--dispatch); color: var(--dispatch-2); font-family: var(--mono); font-size: calc(var(--reading-size) - .08rem); }
+.chapter .closing-line { color: var(--good); font-style: italic; }
+blockquote { margin: 24px 0; padding: 16px 20px; border-left: 2px solid var(--screen-glow); color: var(--screen-glow); font-family: var(--lcd-font); font-size: calc(var(--reading-size) - .06rem); line-height: 1.65; }
+
+/* States */
+.loading-state, .error-state { padding: 48px 24px; text-align: center; font-family: var(--mono); color: var(--muted); }
+.spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--dispatch); border-top-color: transparent; border-radius: 50%; animation: spin .8s linear infinite; margin-right: 8px; vertical-align: middle; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Footer Navigation */
+.reader-footer { display: grid; grid-template-columns: 42px 1fr 42px; grid-template-rows: 3px auto; gap: 14px; align-items: center; border-top: 1px solid rgba(255, 157, 47, .2); padding-top: 18px; }
+.progress-track { grid-column: 1 / -1; height: 3px; background: rgba(255, 157, 47, .15); border-radius: 2px; }
+.progress-track span { display: block; width: 0%; height: 100%; background: var(--dispatch); box-shadow: 0 0 12px rgba(255, 157, 47, .7); transition: width .3s ease; }
+.nav-button { width: 42px; height: 38px; font-size: 1.2rem; }
+.nav-status { display: flex; justify-content: center; gap: 20px; color: var(--dispatch-2); font-family: var(--mono); font-size: .68rem; letter-spacing: .15em; }
+.nav-hint { color: var(--muted); }
+
+@keyframes arrive { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Mobile Responsive Optimizations */
+@media (max-width: 740px) {
+  body { padding: 4px; }
+  .radio { padding: 10px; border-radius: 20px; }
+  .terminal-bar { flex-wrap: wrap; min-height: 42px; padding: 6px 10px; gap: 6px; }
+  .terminal-id { display: none; }
+  .header-actions { width: 100%; justify-content: space-between; }
+  .book-select { max-width: 170px; font-size: 11px; }
+  .upload-btn { font-size: 11px; padding: 4px 8px; }
+
+  .reader-frame { grid-template-columns: 20px 1fr; gap: 6px; }
+  .archive-rail { padding: 10px 2px; border-radius: 10px; }
+  .rail-mark { font-size: .55rem; text-align: center; }
+  .rail-mark span, .rail-label, .rail-meta { display: none; }
+  .rail-line { min-height: 30px; margin: 8px auto; }
+
+  .reader-main { padding: 18px 12px 14px; border-radius: 12px; }
+  .reader-heading { flex-direction: column; gap: 12px; padding-bottom: 16px; }
+  h1 { font-size: 2.2rem; }
+  .stamp { align-self: flex-start; transform: none; }
+
+  .media-deck { flex-direction: column; align-items: stretch; gap: 8px; padding: 8px 10px; }
+  .bgm-player { justify-content: space-between; width: 100%; }
+  .bgm-select { max-width: 140px; }
+  .bgm-volume { width: 60px; }
+
+  .book { min-height: 0; padding-top: 14px; }
+  .chapter h2 { font-size: 1.8rem; }
+  .chapter p { font-size: 1.05rem; line-height: 1.65; }
+
+  .nav-status { flex-direction: column; align-items: center; gap: 3px; font-size: .58rem; }
+  .nav-hint { font-size: .5rem; }
+}

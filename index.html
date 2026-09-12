@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kraterarchiv // EPUB-Reader</title>
+  <meta name="description" content="Minimalistischer EPUB-Reader & Senderarchiv für Doomsday Radio: Multi-Book, BGM & Light/Dark Mode.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&family=VT323&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/jszip.min.js"></script>
+</head>
+<body>
+  <main class="radio terminal-shell">
+    <header class="terminal-bar">
+      <a class="back-link" href="../">← Story</a>
+      <div class="terminal-id"><span class="status-dot"></span> ARCHIVKNOTEN 07 // EPUB-READER</div>
+      <div class="header-actions">
+        <select id="bookSelector" class="book-select" title="Buch auswählen">
+          <option value="">Wird geladen...</option>
+        </select>
+        <label for="epubInput" class="upload-btn" title="Eigene .epub-Datei öffnen">
+          📁 .epub öffnen
+        </label>
+        <input type="file" id="epubInput" accept=".epub" style="display:none">
+        <button id="themeToggleBtn" class="theme-btn" type="button" title="Hell/Dunkel umschalten" aria-label="Hell/Dunkel umschalten">🌙</button>
+      </div>
+    </header>
+
+    <section class="reader-frame" aria-label="EPUB Reader Container">
+      <aside class="archive-rail">
+        <div class="rail-mark">DR<br><span>EPUB</span></div>
+        <div class="rail-label">KRATER<br>ARCHIV</div>
+        <div class="rail-line"></div>
+        <div class="rail-meta" id="railMeta">DATENSATZ<br>EPUB3</div>
+      </aside>
+
+      <div class="reader-main">
+        <div class="reader-heading">
+          <div>
+            <p class="eyebrow" id="bookEyebrow">EPUB3 // DIGITALES ARCHIV</p>
+            <h1 id="bookTitle">Wir berichten,<br><em>selbst wenn keiner mehr zuhört.</em></h1>
+            <p class="dek" id="bookSubtitle">Die letzte Sendung von Viktor Weiß. Ein Sender. Eine Liste. Ein Krater.</p>
+          </div>
+          <div class="stamp" id="bookStamp">FORMAT<br><strong id="bookFormatTag">EPUB3</strong></div>
+        </div>
+
+        <!-- BGM & Audiobook Control Bar -->
+        <div class="media-deck">
+          <div class="bgm-player">
+            <button id="bgmToggleBtn" class="bgm-btn" type="button" title="Hintergrundmusik starten/pausieren">
+              <span class="icon">♫</span> <span id="bgmStateLabel">BGM abspielen</span>
+            </button>
+            <select id="bgmTrackSelect" class="bgm-select" title="Hintergrundmusik-Track wählen">
+              <option value="">Keine Musik</option>
+            </select>
+            <input type="range" id="bgmVolume" class="bgm-volume" min="0" max="1" step="0.05" value="0.4" title="BGM Lautstärke">
+          </div>
+
+          <button id="audiobookToggleBtn" class="audiobook-btn" type="button" title="Hörbuch-Player ein/ausblenden">
+            🎙️ Hörbuch
+          </button>
+        </div>
+
+        <!-- Collapsible Audiobook Deck -->
+        <div class="audio-deck hidden" id="audiobookDeck" aria-label="Hörbuch-Player">
+          <div class="audio-deck-header">
+            <span class="audio-tag">AUDIOAUFZEICHNUNG // HÖRBUCH</span>
+            <span class="audio-title" id="audiobookTitle">VOLLSTÄNDIGE FASSUNG (31 MB)</span>
+          </div>
+          <audio class="audio-player" id="audioPlayer" controls preload="metadata">
+            Ihr Browser unterstützt das Audio-Element nicht.
+          </audio>
+        </div>
+
+        <!-- Reader Controls -->
+        <div class="reader-controls" aria-label="Lesewerkzeuge">
+          <button class="tool-button" id="smaller" type="button" title="Schrift verkleinern" aria-label="Schrift verkleinern">A−</button>
+          <button class="tool-button" id="larger" type="button" title="Schrift vergrößern" aria-label="Schrift vergrößern">A+</button>
+          <span class="control-divider"></span>
+          <span class="page-readout" id="pageReadout">KAPITEL 01 / 01</span>
+        </div>
+
+        <!-- Dynamic Book Content Area -->
+        <article class="book" id="book">
+          <div class="loading-state">
+            <span class="spinner"></span> EPUB wird entpackt und gerendert...
+          </div>
+        </article>
+
+        <!-- Footer Navigation -->
+        <footer class="reader-footer">
+          <div class="progress-track"><span id="progressBar"></span></div>
+          <button class="nav-button" id="prev" type="button" aria-label="Vorheriges Kapitel" title="Vorheriges Kapitel">←</button>
+          <div class="nav-status"><span id="chapterLabel">KAPITEL 01</span><span class="nav-hint">PFEILTASTEN ODER WISCHEN</span></div>
+          <button class="nav-button" id="next" type="button" aria-label="Nächstes Kapitel" title="Nächstes Kapitel">→</button>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script defer src="../../analytics-loader.js"></script>
+</body>
+</html>

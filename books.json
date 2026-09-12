@@ -1,0 +1,38 @@
+[
+  {
+    "id": "wir-berichten",
+    "title": "Wir berichten, selbst wenn keiner mehr zuhört",
+    "subtitle": "Die letzte Sendung von Viktor Weiß. Ein Sender. Eine Liste. Ein Krater.",
+    "author": "Doomsday Radio Kraterarchiv",
+    "epub": "books/wir-berichten-selbst-wenn-keiner-mehr-zuhoert.epub",
+    "audiobook": "audio/Kraterarchiv-final.mp3",
+    "bgmTracks": [
+      { "title": "Ödland im Staub (Ambient 1)", "url": "audio/bgm/oedland-im-staub.mp3" },
+      { "title": "Ödland im Staub (Ambient 2)", "url": "audio/bgm/oedland-im-staub2.mp3" },
+      { "title": "Ödland im Staub (Ambient 3)", "url": "audio/bgm/oedland-im-staub3.mp3" },
+      { "title": "Ödland im Staub (Ambient 4)", "url": "audio/bgm/oedland-im-staub4.mp3" },
+      { "title": "Ödland Transition Doomsday", "url": "audio/bgm/oedland-transition-doomsday.mp3" },
+      { "title": "Rust Tongues", "url": "audio/bgm/rust-tongues%20%5Busesuno.com%5D.mp3" },
+      { "title": "Doomsday Timeline Theme 1", "url": "audio/timeline/Doomsday%20Timeline.mp3" },
+      { "title": "Doomsday Timeline Theme 2", "url": "audio/timeline/Doomsday%20Timeline2.mp3" },
+      { "title": "Doomsday Timeline Theme 3", "url": "audio/timeline/Doomsday%20Timeline3.mp3" },
+      { "title": "Doomsday Timeline Theme 4", "url": "audio/timeline/Doomsday%20Timeline4.mp3" }
+    ]
+  },
+  {
+    "id": "drei-stimmen",
+    "title": "Die Nacht der drei Stimmen",
+    "subtitle": "Ein Signalereignis im Ionensturm 2222. Drei Stimmen auf einer Frequenz.",
+    "author": "Doomsday Radio Kraterarchiv",
+    "epub": "books/die-nacht-der-drei-stimmen.epub",
+    "audiobook": null,
+    "bgmTracks": [
+      { "title": "Doomsday Timeline Theme 1", "url": "audio/timeline/Doomsday%20Timeline.mp3" },
+      { "title": "Doomsday Timeline Theme 2", "url": "audio/timeline/Doomsday%20Timeline2.mp3" },
+      { "title": "Doomsday Timeline Theme 3", "url": "audio/timeline/Doomsday%20Timeline3.mp3" },
+      { "title": "Doomsday Timeline Theme 4", "url": "audio/timeline/Doomsday%20Timeline4.mp3" },
+      { "title": "Ödland im Staub (Ambient 3)", "url": "audio/bgm/oedland-im-staub3.mp3" },
+      { "title": "Ödland im Staub (Ambient 4)", "url": "audio/bgm/oedland-im-staub4.mp3" }
+    ]
+  }
+]
