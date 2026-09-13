@@ -4,25 +4,25 @@
  */
 
 :root, [data-theme="dark"] {
-  --bg-a: #2b231d;
-  --bg-b: #130f0d;
-  --chassis-top: #685748;
-  --chassis-mid: #4a3c31;
-  --chassis-low: #2d241d;
-  --bezel: #120e0c;
-  --screen: #0a0d0d;
-  --screen-glow: #8df0ca;
-  --dispatch: #ff9d2f;
-  --dispatch-2: #ffd166;
+  --bg-a: #5a493c;
+  --bg-b: #2b2118;
+  --chassis-top: #947d69;
+  --chassis-mid: #685649;
+  --chassis-low: #44372e;
+  --bezel: #261e19;
+  --screen: #17130f;
+  --screen-glow: #83ffab;
+  --dispatch: #f36c04;
+  --dispatch-2: #ff9545;
   --danger: #ff5a3d;
-  --good: #8ee39f;
-  --muted: #a69888;
-  --text: #fff2e4;
-  --text-heading: #ffffff;
-  --card-bg: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, 0) 15%), linear-gradient(180deg, #1d1614, #0f0b0a);
-  --input-bg: #271e1a;
-  --btn-bg: linear-gradient(180deg, #574135, #291e1a);
-  --btn-hover: #ff9d2f;
+  --good: #83ffab;
+  --muted: #c8b9aa;
+  --text: #e8e2d6;
+  --text-heading: #fffaf2;
+  --card-bg: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, 0) 15%), linear-gradient(180deg, #3d3129, #241c17);
+  --input-bg: #493a30;
+  --btn-bg: linear-gradient(180deg, #806957, #493a30);
+  --btn-hover: #f36c04;
   --btn-hover-text: #1a0c06;
   --mono: "IBM Plex Mono", Menlo, monospace;
   --lcd-font: "VT323", "IBM Plex Mono", Menlo, monospace;
