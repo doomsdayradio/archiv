@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kraterarchiv // EPUB-Reader</title>
-  <meta name="description" content="Minimalistischer EPUB-Reader & Senderarchiv für Doomsday Radio: Multi-Book, BGM & Light/Dark Mode.">
+  <title>Archiv // Doomsday Radio</title>
+  <meta name="description" content="Hörbuch- und Audioarchiv von Doomsday Radio mit Buchauswahl, Hintergrundmusik und Audioplayer.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&family=VT323&display=swap">
@@ -15,13 +15,13 @@
   <main class="radio terminal-shell">
     <header class="terminal-bar">
       <a class="back-link" href="../">← Story</a>
-      <div class="terminal-id"><span class="status-dot"></span> ARCHIVKNOTEN 07 // EPUB-READER</div>
+      <div class="terminal-id"><span class="status-dot"></span> ARCHIVKNOTEN 07 // HÖRBUCH-PLAYER</div>
       <div class="header-actions">
         <select id="bookSelector" class="book-select" title="Buch auswählen">
           <option value="">Wird geladen...</option>
         </select>
         <label for="epubInput" class="upload-btn" title="Eigene .epub-Datei öffnen">
-          📁 .epub öffnen
+          📁 Buch öffnen
         </label>
         <input type="file" id="epubInput" accept=".epub" style="display:none">
         <button id="themeToggleBtn" class="theme-btn" type="button" title="Hell/Dunkel umschalten" aria-label="Hell/Dunkel umschalten">🌙</button>
@@ -30,20 +30,20 @@
 
     <section class="reader-frame" aria-label="EPUB Reader Container">
       <aside class="archive-rail">
-        <div class="rail-mark">DR<br><span>EPUB</span></div>
-        <div class="rail-label">KRATER<br>ARCHIV</div>
+        <div class="rail-mark">DR<br><span>AUDIO</span></div>
+        <div class="rail-label">DOOMSDAY<br>ARCHIV</div>
         <div class="rail-line"></div>
-        <div class="rail-meta" id="railMeta">DATENSATZ<br>EPUB3</div>
+        <div class="rail-meta" id="railMeta">DATENSATZ<br>HÖRBUCH</div>
       </aside>
 
       <div class="reader-main">
         <div class="reader-heading">
           <div>
-            <p class="eyebrow" id="bookEyebrow">EPUB3 // DIGITALES ARCHIV</p>
+            <p class="eyebrow" id="bookEyebrow">AUDIOARCHIV // BUCHBESTAND</p>
             <h1 id="bookTitle">Wir berichten,<br><em>selbst wenn keiner mehr zuhört.</em></h1>
             <p class="dek" id="bookSubtitle">Die letzte Sendung von Viktor Weiß. Ein Sender. Eine Liste. Ein Krater.</p>
           </div>
-          <div class="stamp" id="bookStamp">FORMAT<br><strong id="bookFormatTag">EPUB3</strong></div>
+          <div class="stamp" id="bookStamp">BESTAND<br><strong id="bookFormatTag">AUDIO</strong></div>
         </div>
 
         <!-- BGM & Audiobook Control Bar -->
@@ -85,7 +85,7 @@
         <!-- Dynamic Book Content Area -->
         <article class="book" id="book">
           <div class="loading-state">
-            <span class="spinner"></span> EPUB wird entpackt und gerendert...
+            <span class="spinner"></span> Buch wird geladen und gerendert...
           </div>
         </article>
 

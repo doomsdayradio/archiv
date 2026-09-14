@@ -3,9 +3,9 @@
     "id": "wir-berichten",
     "title": "Wir berichten, selbst wenn keiner mehr zuhört",
     "subtitle": "Die letzte Sendung von Viktor Weiß. Ein Sender. Eine Liste. Ein Krater.",
-    "author": "Doomsday Radio Kraterarchiv",
+    "author": "Doomsday Radio Archiv",
     "epub": "books/wir-berichten-selbst-wenn-keiner-mehr-zuhoert.epub",
-    "audiobook": "audio/Kraterarchiv-final.mp3",
+    "audiobook": "audio/doomsday-archiv-final.mp3",
     "bgmTracks": [
       { "title": "Ödland im Staub (Ambient 1)", "url": "audio/bgm/oedland-im-staub.mp3" },
       { "title": "Ödland im Staub (Ambient 2)", "url": "audio/bgm/oedland-im-staub2.mp3" },
@@ -23,7 +23,7 @@
     "id": "drei-stimmen",
     "title": "Die Nacht der drei Stimmen",
     "subtitle": "Ein Signalereignis im Ionensturm 2222. Drei Stimmen auf einer Frequenz.",
-    "author": "Doomsday Radio Kraterarchiv",
+    "author": "Doomsday Radio Archiv",
     "epub": "books/die-nacht-der-drei-stimmen.epub",
     "audiobook": null,
     "bgmTracks": [

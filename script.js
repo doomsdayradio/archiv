@@ -1,6 +1,6 @@
 /**
- * Kraterarchiv EPUB-Reader & Multi-Book Engine
- * EPUB3 Parsing via JSZip, Multi-Book Selector, BGM Audio & Light/Dark Theme.
+ * Doomsday Radio Archiv Reader & Multi-Book Engine
+ * Buch-Parsing via JSZip, Multi-Book Selector, BGM Audio & Light/Dark Theme.
  */
 
 (function () {
@@ -51,7 +51,7 @@
   let isBgmPlaying = false;
 
   // Init Theme
-  const savedTheme = localStorage.getItem("kraterarchiv_theme") || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+  const savedTheme = localStorage.getItem("doomsday_archiv_theme") || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
   setTheme(savedTheme);
 
   themeToggleBtn.addEventListener("click", () => {
@@ -62,7 +62,7 @@
   function setTheme(theme) {
     html.setAttribute("data-theme", theme);
     themeToggleBtn.textContent = theme === "dark" ? "🌙" : "☀️";
-    localStorage.setItem("kraterarchiv_theme", theme);
+    localStorage.setItem("doomsday_archiv_theme", theme);
   }
 
   // --- EPUB PARSER ENGINE (JSZip + DOMParser) ---
@@ -207,8 +207,8 @@
     // Header Metadata
     bookTitle.innerHTML = formatTitleHtml(parsedBook.title);
     bookSubtitle.textContent = meta && meta.subtitle ? meta.subtitle : `Von ${parsedBook.author}`;
-    bookEyebrow.textContent = `EPUB3 // ${meta && meta.author ? meta.author.toUpperCase() : "KRATERARCHIV"}`;
-    bookFormatTag.textContent = "EPUB3";
+    bookEyebrow.textContent = `AUDIOARCHIV // ${meta && meta.author ? meta.author.toUpperCase() : "DOOMSDAY RADIO ARCHIV"}`;
+    bookFormatTag.textContent = "AUDIO";
     railMeta.innerHTML = `DATENSATZ<br>${meta && meta.id ? meta.id.toUpperCase() : "CUSTOM"}`;
 
     // Update Media Bar (Audiobook & BGM)
@@ -389,9 +389,9 @@
         id: "wir-berichten",
         title: "Wir berichten, selbst wenn keiner mehr zuhört",
         subtitle: "Die letzte Sendung von Viktor Weiß. Ein Sender. Eine Liste. Ein Krater.",
-        author: "Doomsday Radio Kraterarchiv",
+        author: "Doomsday Radio Archiv",
         epub: "books/wir-berichten-selbst-wenn-keiner-mehr-zuhoert.epub",
-        audiobook: "audio/Kraterarchiv-final.mp3",
+        audiobook: "audio/doomsday-archiv-final.mp3",
         bgmTracks: [
           { title: "Ödland im Staub (Ambient 1)", url: "audio/bgm/oedland-im-staub.mp3" },
           { title: "Ödland im Staub (Ambient 2)", url: "audio/bgm/oedland-im-staub2.mp3" },
