@@ -1,14 +1,41 @@
-# archiv
+# Doomsday Radio Archiv
 
-This repository is part of the Doomsday Radio multi-repo migration.
+Statische Weboberfläche für Bücher, Hörbücher und Audiofragmente aus dem
+Doomsday-Radio-Universum. Der Katalog wird aus `books.json` geladen und im
+Browser mit EPUB-Ansicht, Hörbuch-Player und Hintergrundmusik dargestellt.
 
-## Purpose
-Archive, playlists, EPubs and recorded audio fragments for the radio archive.
+## Lokal starten
 
-## Source relationship
-This repo is intentionally separated from the monorepo so it can be built, tested, and deployed independently.
+Die Anwendung verwendet `fetch()` und muss deshalb über einen lokalen
+Webserver geöffnet werden:
 
-## Notes
-- Keep product logic, tests, and deployment config in this repo.
-- Prefer stable public URLs or versioned contracts over relative cross-repo links.
-- Only radio-specific assets belong in Bunny Storage; non-radio assets may remain in the repo.
+```bash
+python -m http.server 8000
+```
+
+Anschließend ist das Archiv unter <http://localhost:8000> erreichbar.
+
+## Inhalte pflegen
+
+- `books.json` enthält den sichtbaren Katalog und die Verweise auf Medien.
+- `books/` enthält EPUB-Dateien.
+- `audio/` enthält Hörbücher, Fragmente und Hintergrundmusik.
+- `vendor/jszip.min.js` stellt die ZIP-Verarbeitung für EPUB-Dateien bereit.
+
+Neue Inhalte sollten zuerst im Katalog eingetragen und danach über den lokalen
+Server geprüft werden. Bei Änderungen an Dateinamen müssen die Pfade in
+`books.json` mit angepasst werden.
+
+## Projektstruktur
+
+```text
+index.html    Einstiegspunkt der Web-App
+script.js     Katalog, EPUB-Ansicht und Audiosteuerung
+style.css     Darstellung
+books.json    Medienkatalog
+books/        EPUB-Bestand
+audio/        Audiobestand
+vendor/       lokal eingebundene Browser-Abhängigkeiten
+```
+
+Das Repository enthält derzeit keine eigene Deployment-Automation.
